@@ -5,7 +5,7 @@ from Loan import Loan
 from datetime import date
 
 class User:
-    def __init__(self, id: int, passport_data: PassportData, contact_data: ContactData, encoded_pass: str):
+    def __init__(self, id: float, passport_data: PassportData, contact_data: ContactData, encoded_pass: str):
         self.id = id
         self.passport_data = passport_data
         self.contact_data = contact_data
@@ -90,7 +90,7 @@ class Clerk(User):
         account_type = input("Enter account type (debit, deposit, credit): ")
         return customer.open_account(account_type)
 
-    def open_loan(self, customer: Customer, amount: float) -> 'Loan':
+    def open_loan(self, customer: Customer, amount: int) -> 'Loan':
         # Генерация ID на основе количества займов у клиента
         loan_id = len(customer.loans) + 1
 
