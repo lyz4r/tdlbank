@@ -64,7 +64,7 @@ def main():
 
         debit_account.transfer_to(deposit_account, 500.0)
 
-        deposit_account.calculate()
+        print("Current loan: " + deposit_account.calculate())
 
         credit_account.repay(500)
 
