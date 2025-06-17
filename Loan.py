@@ -25,8 +25,8 @@ class Loan:
     def repay(self, sum: float) -> float:
         if self.amount >= sum:
             self.amount -= sum
-            print(f"Repaid {sum} from loan {self.id}")
+            print(f"Оплачено {sum} из задолженности {self.id}")
             return sum
         else:
-            print("Cannot repay more than the remaining loan amount")
+            print("Невозможно оплатить больше, чем задолженность")
             return 0

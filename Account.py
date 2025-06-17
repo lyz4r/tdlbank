@@ -46,13 +46,13 @@ class AccountDebit(Account):
         if (self.balance >= amount) and (self.status == "active"):
             self.balance -= amount
             towards.balance += amount
-            print(f"Transferred {amount} to account {towards.number}")
+            print(f"Переведено {amount} на счет {towards.number}")
             return True
         elif self.status != "active":
-            print("Account is not active")
+            print("Аккаунт неактивен")
             return False
         else:
-            print("Insufficient funds")
+            print("Недостаточно средств для перевода")
             return False
 
 
@@ -73,13 +73,13 @@ class AccountDeposit(Account):
         if self.balance >= amount and self.status == "active":
             self.balance -= amount
             towards.balance += amount
-            print(f"Transferred {amount} to account {towards.number}")
+            print(f"Переведено {amount} на счет {towards.number}")
             return True
         elif self.status != "active":
-            print("Account is not active")
+            print("Аккаунт неактивен")
             return False
         else:
-            print("Insufficient funds")
+            print("Недостаточно средств для перевода")
             return False
 
 
@@ -101,8 +101,8 @@ class AccountCredit(Account):
         if self.balance >= sum:
             self.balance -= sum
             self.borrowed -= sum
-            print(f"Repaid {sum} from credit account")
+            print(f"Оплачено {sum} на кредитном счёте {self.number}")
             return sum
         else:
-            print("Insufficient funds to repay")
+            print("Недостаточно средств для погашения кредитной карты")
             return 0

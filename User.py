@@ -67,7 +67,7 @@ class Customer(User):
                 last_calculated=open_date
             )
         else:
-            raise ValueError("Invalid account type")
+            raise ValueError("Неверный вид счета")
 
         self.accounts.append(new_account)
         return new_account
@@ -85,9 +85,8 @@ class Clerk(User):
         super().__init__(id, passport_data, contact_data, encoded_pass)
         self.position = position
 
-    def open_account(self, customer: Customer) -> 'Account':
-        # Открытие нового счета для клиента
-        account_type = input("Enter account type (debit, deposit, credit): ")
+    def open_account(self, customer: Customer, account_type: str) -> 'Account':
+        # Открытие нового счета для клиента без запроса ввода
         return customer.open_account(account_type)
 
     def open_loan(self, customer: Customer, amount: int) -> 'Loan':
